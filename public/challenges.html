@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges - Wellness Impact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/color.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Item_Primogem.png"
+                    class="logo img-fluid" style="height: 40px; margin-right: 10px;" />
+                Wellness Impact
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="players.html">Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inventory.html">Inventory</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto" id="navbarUser">
+                    <!-- Will be populated by userNavbarToggle.js -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="text-white mb-3">Challenges</h1>
+                <p class="text-light">Complete wellness challenges to earn Mora and level up your character!</p>
+
+                <!-- Character Status -->
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-white">Current Character</h5>
+                                <div id="characterStatus">
+                                    <div class="text-center">
+                                        <div class="loading-spinner mx-auto"></div>
+                                        <p class="text-light mt-2">Loading character...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-white">Quick Stats</h5>
+                                <div id="quickStats">
+                                    <p class="text-light mb-1">Cooldown: <span id="cooldownStatus">Checking...</span></p>
+                                    <p class="text-light mb-1">Available Mora: <span id="availableMora" class="text-mora">Loading...</span></p>
+                                    <p class="text-light">Character HP: <span id="characterHP">Loading...</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenges List -->
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-white mb-3">Available Challenges</h3>
+                <div id="challengesList">
+                    <div class="text-center">
+                        <div class="loading-spinner mx-auto my-5"></div>
+                        <p class="text-light">Loading challenges...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Challenge Button -->
+        <div class="row mt-4" id="createChallengeSection" style="display: none;">
+            <div class="col-12">
+                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createChallengeModal">
+                    + Create New Challenge
+                </button>
+            </div>
+        </div>
+
+        <!-- My Challenges -->
+        <div class="row mt-5" id="myChallengesSection" style="display: none;">
+            <div class="col-12">
+                <h3 class="text-white mb-3">My Created Challenges</h3>
+                <div id="myChallengesList"></div>
+            </div>
+        </div>
+
+        <!-- Create Challenge Modal -->
+        <div class="modal fade" id="createChallengeModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-white">Create New Challenge</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form id="createChallengeForm">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="challengeDescription" class="form-label text-light">Description</label>
+                                <textarea class="form-control" id="challengeDescription" rows="3"
+                                          placeholder="Describe the wellness challenge..." required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="challengePoints" class="form-label text-light">Mora Reward</label>
+                                <input type="number" class="form-control" id="challengePoints"
+                                       min="1" max="1000" value="10" required>
+                                <div class="form-text text-light">Amount of Mora the user earns for completing this challenge</div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Create Challenge</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Minigame Modal -->
+        <div class="modal fade" id="minigameModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-white" id="minigameTitle">Minigame</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="minigameContent">
+                            <div class="text-center">
+                                <div class="loading-spinner mx-auto"></div>
+                                <p class="text-light mt-3">Loading minigame...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completion Modal -->
+        <div class="modal fade" id="completionModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-white">Complete Challenge</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form id="completionForm">
+                        <div class="modal-body">
+                            <p class="text-light" id="completionMessage"></p>
+                            <div class="mb-3">
+                                <label for="completionDetails" class="form-label text-light">Completion Details</label>
+                                <textarea class="form-control" id="completionDetails" rows="3"
+                                          placeholder="Describe how you completed the challenge..." required></textarea>
+                            </div>
+                            <div class="alert alert-info">
+                                <small class="text-light">You must successfully complete the minigame before you can submit this form.</small>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="submitCompletion">Submit Completion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/getCurrentURL.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/queryCmds.js"></script>
+    <script src="js/userNavbarToggle.js"></script>
+
+    <script src="js/challenges.js"></script>
+    <script src="js/minigames.js"></script>
+</body>
+</html>

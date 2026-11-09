@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.16.0",
+    "nodemon": "^3.1.11"
+  },
+  "name": "bed-ca2-chloelzx25",
+  "version": "1.0.0",
+  "description": "You are required to build your folder structures for your project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "init_tables": "node src/configs/createSchema.js && node src/configs/init_tables.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ST0503-BED/bed-ca2-Chloelzx25.git"
+  },
+  "author": "Chloe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ST0503-BED/bed-ca2-Chloelzx25/issues"
+  },
+  "homepage": "https://github.com/ST0503-BED/bed-ca2-Chloelzx25#readme"
+}

@@ -1,0 +1,295 @@
+/* ============ ROOT VARIABLES ============ */
+:root {
+  /* Element Colors */
+  --pyro: #ef7d3c;
+  --hydro: #4ec0e9;
+  --anemo: #74d3ae;
+  --electro: #c07af5;
+  --dendro: #b0d34a;
+  --cryo: #a0d7e7;
+  --geo: #f8b339;
+
+  /* Theme Colors */
+  --primary-color: #c2185b;
+  --primary-dark: #8c0032;
+  --primary-light: #f48fb1;
+
+  --secondary-color: #7b1fa2;
+  --secondary-dark: #4a0072;
+  --secondary-light: #ae52d4;
+
+  --accent-gold: #ffd700;
+  --accent-blue: #2196f3;
+  --accent-light: #f3e5f5;
+
+  /* Background & Text */
+  --bg-dark: #1a1a2e;
+  --bg-card: #252547;
+  --bg-light: #2d2b55;
+
+  --text-light: #ffffff;
+  --text-muted: #b39ddb;
+  --text-dark: #311b92;
+
+  /* Compatibility Colors */
+  --primary: #3a6ea5;
+  --secondary: #5a8cbf;
+  --dark: #1a2639;
+  --darker: #0d1829;
+  --light: #f0f8ff;
+
+  --success: #4caf50;
+  --warning: #ff9800;
+  --danger: #f44336;
+  --info: #2196f3;
+
+  /* Mora / Gold */
+  --mora: #ffd700;
+  --mora-dark: #b8860b;
+
+  /* Rarity Colors */
+  --rarity-5: #ffb347;
+  --rarity-4: #c77cff;
+  --rarity-3: #5bc0de;
+  --rarity-2: #90ee90;
+  --rarity-1: #cccccc;
+}
+
+/* ============ ELEMENT HELPERS ============ */
+.bg-pyro { background-color: var(--pyro); }
+.bg-hydro { background-color: var(--hydro); }
+.bg-anemo { background-color: var(--anemo); }
+.bg-electro { background-color: var(--electro); }
+.bg-dendro { background-color: var(--dendro); }
+.bg-cryo { background-color: var(--cryo); }
+.bg-geo { background-color: var(--geo); }
+
+.text-pyro { color: var(--pyro); }
+.text-hydro { color: var(--hydro); }
+.text-anemo { color: var(--anemo); }
+.text-electro { color: var(--electro); }
+.text-dendro { color: var(--dendro); }
+.text-cryo { color: var(--cryo); }
+.text-geo { color: var(--geo); }
+
+.border-pyro { border-color: var(--pyro); }
+.border-hydro { border-color: var(--hydro); }
+.border-anemo { border-color: var(--anemo); }
+.border-electro { border-color: var(--electro); }
+.border-dendro { border-color: var(--dendro); }
+.border-cryo { border-color: var(--cryo); }
+.border-geo { border-color: var(--geo); }
+
+/* Mora */
+.text-mora { color: var(--mora); }
+.bg-mora { background-color: var(--mora); }
+.border-mora { border-color: var(--mora); }
+
+/* Rarity */
+.rarity-5 { color: var(--rarity-5); }
+.rarity-4 { color: var(--rarity-4); }
+.rarity-3 { color: var(--rarity-3); }
+.rarity-2 { color: var(--rarity-2); }
+.rarity-1 { color: var(--rarity-1); }
+
+/* ============ NAVBAR / GENERAL THEME ============ */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+  box-shadow: 0 4px 20px rgba(194, 24, 91, 0.3);
+}
+
+.navbar-brand {
+  color: var(--text-light) !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand:hover {
+  color: var(--accent-gold) !important;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-gold) !important;
+  transform: translateY(-2px);
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--primary-light);
+  font-weight: bold;
+}
+
+h1 {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(194, 24, 91, 0.3);
+}
+
+.lead {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+a {
+  color: var(--primary-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover { color: var(--accent-gold); }
+
+/* Buttons */
+.btn {
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+#registerButton {
+  background: linear-gradient(135deg, #ff4081 0%, #e91e63 100%) !important;
+  color: white !important;
+  padding: 8px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+}
+
+#registerButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.6);
+  background: linear-gradient(135deg, #f50057 0%, #c2185b 100%) !important;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(123, 31, 162, 0.2);
+  transition: all 0.3s ease;
+  color: var(--text-light);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(123, 31, 162, 0.4);
+}
+
+.card-body h5 {
+  color: var(--primary-light);
+  font-weight: bold;
+}
+
+/* Feature number circles */
+.fs-1 {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.p-3 .fs-1 {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 50%;
+  color: white;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(123, 31, 162, 0.4);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--primary-dark) 100%) !important;
+  color: var(--text-light) !important;
+  border-top: 2px solid var(--primary-color);
+}
+
+/* ============ BACKGROUND (KEEP EXACT) ============ */
+body {
+  background-image: url('https://preview.redd.it/fidyq5valih61.jpg?width=1080&crop=smart&auto=webp&s=14baea7155d1e87765dacc2a15fa4e55d6d24bae');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Dark overlay for readability (KEEP) */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* Make cards semi-transparent (KEEP) */
+.card {
+  background-color: rgba(25, 25, 35, 0.85) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Make navbar semi-transparent (KEEP) */
+.navbar {
+  background-color: rgba(123, 31, 162, 0.9) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Make footer semi-transparent (KEEP) */
+footer {
+  background-color: rgba(123, 31, 162, 0.9) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Improve text visibility on background (KEEP) */
+.text-light,
+.text-white,
+.navbar-brand,
+.nav-link,
+.card-body {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Card text tuning (KEEP) */
+.card .text-light { color: #f8f9fa !important; }
+.card .text-muted { color: #adb5bd !important; }
+.card .text-dark  { color: #212529 !important; }
+
+/* Shop card tweaks (KEEP) */
+.shop-item-card .text-light,
+.character-card .text-light {
+  color: #e9ecef !important;
+}
+
+.shop-item-card .text-muted,
+.character-card .text-muted {
+  color: #6c757d !important;
+}
+
+/* Badge text visibility (KEEP) */
+.badge { color: white !important; }
+.badge.bg-warning.text-dark { color: #212529 !important; }
+
+/* ============ ELEMENT OVERRIDES (KEEP) ============ */
+.bg-pyro    { background-color: #e53935 !important; }
+.bg-hydro   { background-color: #1e88e5 !important; }
+.bg-electro { background-color: #8e24aa !important; }
+.bg-cryo    { background-color: #81d4fa !important; color: #000 !important; }
+.bg-anemo   { background-color: #26a69a !important; }
+.bg-geo     { background-color: #f5bc60 !important; color: #000 !important; }
+.bg-dendro  { background-color: #43a047 !important; }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Players - Wellness Impact</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/color.css" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img
+          src="https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Item_Primogem.png"
+          class="logo img-fluid"
+          style="height: 40px; margin-right: 10px;"
+        />
+        Wellness Impact
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="players.html">Players</a></li>
+          <li class="nav-item"><a class="nav-link" href="challenges.html">Challenges</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="inventory.html">Inventory</a></li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto" id="navbarUser">
+          <!-- userNavbarToggle.js will populate -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <div class="row mb-3">
+      <div class="col-12">
+        <h1 class="text-white mb-2">Players</h1>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-outline-light" id="refreshPlayersBtn">Refresh</button>
+            <div class="text-light">Total: <span id="playersCount">0</span></div>
+          </div>
+
+          <div class="input-group" style="max-width: 320px;">
+            <input type="text" class="form-control" id="playersSearch" placeholder="Search players..." />
+            <span class="input-group-text bg-dark border-secondary text-light">🔎</span>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-dark table-hover align-middle">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th id="adminActionsHeader" style="display:none;">Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="playersTableBody">
+              <tr>
+                <td colspan="2" class="text-center">
+                  <div class="loading-spinner mx-auto my-3"></div>
+                  <p class="text-light mb-0">Loading players...</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Admin-only details modal -->
+    <div class="modal fade" id="playerDetailsModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark text-light border-secondary">
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title">Player Details</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body" id="playerDetailsBody"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/getCurrentURL.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/queryCmds.js"></script>
+  <script src="js/userNavbarToggle.js"></script>
+  <script src="js/players.js"></script>
+</body>
+</html>

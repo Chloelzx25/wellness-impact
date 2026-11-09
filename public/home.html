@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Wellness Impact</title>
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/color.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <img src="https://static.wikia.nocookie.net/gensin-impact/images/d/d4/Item_Primogem.png" 
+                    class="logo img-fluid" style="height: 40px; margin-right: 10px;" />
+                Wellness Impact
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="players.html">Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="challenges.html">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inventory.html">Inventory</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <!-- Top Right: Mora Display -->
+                    <li class="nav-item">
+                        <div class="d-flex align-items-center mora-display">
+                            <img src="https://static.wikia.nocookie.net/gensin-impact/images/8/84/Item_Mora.png/revision/latest?cb=20210106073715" 
+                                class="mora-icon me-2" style="height: 24px;" />
+                            <span id="navbarMora" class="text-warning fw-bold">0</span>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button id="logoutButton" class="btn btn-sm btn-outline-light ms-3">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-4">
+  <div class="container">
+    <div class="row">
+      <!-- Left Side: User Info -->
+      <div class="col-lg-4 col-md-5 mb-4">
+        <div class="sticky-top" style="top: 20px;">
+          <!-- User Info Card -->
+          <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">User Information</h5>
+            </div>
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <h4 id="userFullname" class="text-white">Adventurer</h4>
+                <p class="text-muted" id="userTitle">Wellness Explorer</p>
+              </div>
+
+              <div class="user-stats">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-muted">Username</span>
+                  <span id="profileUsername" class="text-light fw-bold">Loading...</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-muted">Email</span>
+                  <span id="profileEmail" class="text-light">Loading...</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-muted">User ID</span>
+                  <span id="userId" class="text-light">Loading...</span>
+                </div>
+              </div>
+
+              <hr class="border-secondary">
+
+              <!-- Quick Stats -->
+              <div class="row text-center mt-4">
+                <div class="col-6">
+                  <div class="stat-circle-small bg-primary">
+                    <div class="stat-number" id="totalAdventurers">0</div>
+                    <div class="stat-label">Adventurers</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="stat-circle-small bg-success">
+                    <div class="stat-number" id="completedChallenges">0</div>
+                    <div class="stat-label">Completed</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-4" id="recentCompletionsSection" style="display:none;">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">Recent Completions</h5>
+            </div>
+            <div class="card-body">
+              <small class="text-muted d-block mb-2">Last 5</small>
+
+              <ul class="list-group" id="recentCompletionsList">
+                <!-- Filled by home.js -->
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Side: Characters -->
+      <div class="col-lg-8 col-md-7">
+        <!-- Characters Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="text-white">My Adventurers</h2>
+          <div>
+            <button id="healAllBtn" class="btn btn-success me-2">
+              <i class="bi bi-heart-fill"></i> Heal All
+            </button>
+            <a href="shop.html" class="btn btn-primary">
+              <i class="bi bi-plus-circle"></i> Add
+            </a>
+          </div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="input-group">
+              <span class="input-group-text bg-dark border-secondary">
+                <i class="bi bi-search text-light"></i>
+              </span>
+              <input type="text" id="characterSearch" class="form-control" placeholder="Search adventurers...">
+            </div>
+          </div>
+                        <div class="col-md-3">
+                            <select id="elementFilter" class="form-control">
+                                <option value="">All Elements</option>
+                                <option value="Pyro">Pyro</option>
+                                <option value="Hydro">Hydro</option>
+                                <option value="Electro">Electro</option>
+                                <option value="Cryo">Cryo</option>
+                                <option value="Dendro">Dendro</option>
+                                <option value="Anemo">Anemo</option>
+                                <option value="Geo">Geo</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select id="healthFilter" class="form-control">
+                                <option value="">All Health</option>
+                                <option value="healthy">Healthy (70%+)</option>
+                                <option value="wounded">Wounded (30-70%)</option>
+                                <option value="critical">Critical (0-30%)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Characters Grid -->
+                    <div id="charactersGrid" class="row">
+                        <!-- Characters will be loaded here -->
+                        <div class="col-12 text-center py-5">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading adventurers...</span>
+                            </div>
+                            <p class="text-light mt-3">Loading your adventurers...</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Bootstrap & JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/getCurrentURL.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/queryCmds.js"></script>
+    <script src="js/userNavbarToggle.js" type="text/javascript"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
